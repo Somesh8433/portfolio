@@ -1,0 +1,109 @@
+.about {
+    padding: var(--section-padding);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+/* Photo Card 3D Flip */
+.photo-card {
+    width: 380px;
+    height: 500px;
+    perspective: 1500px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.photo-inner.flip {
+    transform: rotateY(180deg);
+}
+
+.photo-front, .photo-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+    border: var(--glass-border);
+}
+
+.photo-front img, .photo-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-front img {
+    filter: grayscale(10%) contrast(1.1);
+}
+
+.photo-back {
+    transform: rotateY(180deg);
+}
+
+.photo-card:hover .photo-front img, 
+.photo-card:hover .photo-back img {
+    transform: scale(1.05);
+}
+
+/* Text About */
+.text-about {
+    max-width: 600px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    padding: 40px;
+    border-radius: 24px;
+    border: var(--glass-border);
+    box-shadow: var(--shadow-subtle);
+}
+
+.text-about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    text-align: left;
+    margin: 0;
+}
+
+.text-about p strong {
+    color: var(--text-primary);
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+    .photo-card {
+        width: 100%;
+        max-width: 350px;
+        height: 450px;
+    }
+    .text-about {
+        padding: 30px;
+    }
+}

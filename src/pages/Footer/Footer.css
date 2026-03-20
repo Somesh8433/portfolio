@@ -1,0 +1,52 @@
+.footer {
+    padding: 40px 0;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 10;
+}
+
+/* layout */
+.footer-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container p {
+    font-size: 0.95rem;
+}
+
+/* icons */
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    display: inline-block;
+}
+
+/* hover animation */
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.15);
+    color: var(--accent-secondary);
+    filter: drop-shadow(0 5px 10px rgba(0, 210, 255, 0.4));
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
