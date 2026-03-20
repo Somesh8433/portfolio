@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: somesh-portfolio
+    runtime: static
+    buildCommand: npm install && npm run build -- --mode render
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
